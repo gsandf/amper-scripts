@@ -25,6 +25,11 @@
   "dependencies": {
     "cfonts": "^2.4.2",
     "common-tags": "^1.8.0",
-    "execa": "^1.0.0"
+    "eslint": "^5.16.0",
+    "eslint-config-gsandf-react": "gsandf/eslint-config-gsandf-react",
+    "eslint-config-prettier": "^4.1.0",
+    "execa": "^1.0.0",
+    "prettier": "^1.16.4",
+    "read-pkg-up": "^5.0.0"
   }
 }

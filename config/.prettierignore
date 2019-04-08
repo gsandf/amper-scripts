@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# built files
+*.min.js
+dist/
+build/
+
+# misc
+package-lock.json

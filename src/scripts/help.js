@@ -4,7 +4,7 @@ function showScriptHelp(...args) {
   const [script] = args;
 
   try {
-    helpFunction = require(`./${script}`).showHelp;
+    const helpFunction = require(`./${script}`).showHelp;
     if (!helpFunction) {
       throw new Error(`No help found for ${script}`);
     }
