@@ -1,0 +1,30 @@
+{
+  "author": "GS&F Devs <dev@gsandf.com> (https://gsandf.com/)",
+  "bin": {
+    "amper-scripts": "src/index.js"
+  },
+  "description": "GS&F dev scripts",
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "src"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "name": "amper-scripts",
+  "repository": "https://github.com/gsandf/amper-scripts",
+  "scripts": {
+    "format": "node . format",
+    "lint": "node . lint",
+    "precommit": "node . format-staged",
+    "test": "node . test",
+    "validate": "node . validate"
+  },
+  "version": "0.0.0",
+  "dependencies": {
+    "cfonts": "^2.4.2",
+    "common-tags": "^1.8.0",
+    "execa": "^1.0.0"
+  }
+}
