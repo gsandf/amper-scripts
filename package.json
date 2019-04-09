@@ -18,7 +18,7 @@
     "format": "node . format",
     "lint": "node . lint",
     "precommit": "node . format-staged",
-    "test": "node . test",
+    "test": "echo 'No tests written yet'",
     "validate": "node . validate"
   },
   "version": "0.0.0",
