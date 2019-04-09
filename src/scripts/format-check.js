@@ -1,9 +1,8 @@
 const { codeBlock } = require('common-tags');
 const format = require('./format').default;
 
-function formatCheck(...args) {
-  format([...args, '--check']);
-}
+const formatCheck = ({ args, options }) =>
+  format({ args: [...args, '--check'], options });
 
 function showHelp() {
   console.log(codeBlock`

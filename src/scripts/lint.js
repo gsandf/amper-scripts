@@ -4,7 +4,7 @@ const { binPath, projectHasFile, projectPackageJson } = require('../utils');
 
 const getDefaultConfig = () => require.resolve('../../config/.eslintrc.js');
 
-async function lint(...args) {
+async function lint({ args, options }) {
   // See https://eslint.org/docs/user-guide/configuring#configuration-file-formats
   const hasSpecifiedConfig =
     args.includes('--config') ||
@@ -15,7 +15,7 @@ async function lint(...args) {
     projectHasFile('.eslintrc') ||
     typeof projectPackageJson.eslintConfig === 'object';
 
-  const options = [
+  const argsWithDefaults = [
     // Use a default config if none specified
     ...(hasSpecifiedConfig ? [] : ['--config', getDefaultConfig()]),
 
@@ -23,11 +23,7 @@ async function lint(...args) {
     ...(args.length === 0 ? ['src/'] : args)
   ];
 
-  try {
-    await execa(binPath('eslint'), options, { stdio: 'inherit' });
-  } catch (error) {
-    process.exit(error.code);
-  }
+  return execa(binPath('eslint'), argsWithDefaults, options);
 }
 
 function showHelp() {

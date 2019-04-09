@@ -1,9 +1,8 @@
 const { codeBlock } = require('common-tags');
 const format = require('./format').default;
 
-function formatWrite(...args) {
-  format([...args, '--write']);
-}
+const formatWrite = ({ args, options }) =>
+  format({ args: [...args, '--write'], options });
 
 function showHelp() {
   console.log(codeBlock`

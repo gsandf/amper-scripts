@@ -6,7 +6,7 @@ const { binPath, projectHasFile, projectPackageJson } = require('../utils');
 const getDefaultConfig = () =>
   require.resolve('../../config/prettier.config.js');
 
-async function format(...args) {
+async function format({ args, options }) {
   // See https://prettier.io/docs/en/configuration.html
   const hasSpecifiedConfig =
     args.includes('--config') ||
@@ -30,7 +30,7 @@ async function format(...args) {
     '?(docs|src|test?(s))/**/*.?(s)css'
   ];
 
-  const options = [
+  const argsWithDefaults = [
     ...args,
     // Use a default config if none specified
     ...(hasSpecifiedConfig ? [] : ['--config', getDefaultConfig()]),
@@ -44,11 +44,7 @@ async function format(...args) {
     ...defaultFiles
   ];
 
-  try {
-    await execa(binPath('prettier'), options, { stdio: 'inherit' });
-  } catch (error) {
-    process.exit(error.code);
-  }
+  return execa(binPath('prettier'), argsWithDefaults, options);
 }
 
 function showHelp() {

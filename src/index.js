@@ -36,13 +36,15 @@ function getAvailableScripts() {
  * Shows usage
  */
 function showUsage() {
-  console.info(
+  console.log(
     codeBlock`
       Usage:
       amper-scripts [script] [args]
 
       Available scripts:
       ${bulletedList(getAvailableScripts())}
+
+      For more info, see https://github.com/gsandf/amper-scripts
     `
   );
 }
@@ -68,4 +70,11 @@ try {
   );
 }
 
-childScript(...args);
+Promise.resolve(
+  childScript({
+    args,
+    options: { stdio: 'inherit' }
+  })
+).catch(error => {
+  process.exit(error.code);
+});
