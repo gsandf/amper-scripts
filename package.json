@@ -27,6 +27,7 @@
     "cfonts": "^2.4.2",
     "common-tags": "^1.8.0",
     "eslint": "^5.16.0",
+    "eslint-config-amper-scripts": "file:config/eslint",
     "eslint-config-gsandf-react": "gsandf/eslint-config-gsandf-react",
     "eslint-config-prettier": "^4.1.0",
     "execa": "^1.0.0",
