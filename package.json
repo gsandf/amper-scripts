@@ -8,6 +8,7 @@
     "node": ">= 8"
   },
   "files": [
+    "config",
     "src"
   ],
   "license": "MIT",
