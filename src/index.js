@@ -68,6 +68,8 @@ try {
        ${bulletedList(getAvailableScripts())}
     `
   );
+
+  process.exit(1);
 }
 
 Promise.resolve(
