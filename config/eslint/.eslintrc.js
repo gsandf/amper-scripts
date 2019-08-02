@@ -1,4 +1,4 @@
-const { projectPackageJson } = require('../src/utils');
+const { projectPackageJson } = require('../../src/utils');
 
 module.exports = {
   extends: ['gsandf-react', 'prettier'],

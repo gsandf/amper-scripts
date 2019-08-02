@@ -2,7 +2,7 @@ const { codeBlock } = require('common-tags');
 const execa = require('execa');
 const { binPath, projectHasFile, projectPackageJson } = require('../utils');
 
-const getDefaultConfig = () => require.resolve('../../config/.eslintrc.js');
+const getDefaultConfig = () => require.resolve('../../config/eslint');
 
 async function lint({ args, options }) {
   // See https://eslint.org/docs/user-guide/configuring#configuration-file-formats
