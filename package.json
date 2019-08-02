@@ -22,7 +22,7 @@
     "test": "echo 'No tests written yet'",
     "validate": "node . validate"
   },
-  "version": "0.0.4-3",
+  "version": "0.0.4-4",
   "dependencies": {
     "cfonts": "^2.4.2",
     "common-tags": "^1.8.0",
