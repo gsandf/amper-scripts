@@ -16,7 +16,7 @@
   "name": "amper-scripts",
   "repository": "https://github.com/gsandf/amper-scripts",
   "scripts": {
-    "format": "node . format",
+    "format": "node . format-write",
     "lint": "node . lint",
     "precommit": "node . format-staged",
     "test": "echo 'No tests written yet'",
