@@ -4,7 +4,7 @@ const readPkgUp = require('read-pkg-up');
 
 const { path: projectDirectory, pkg: projectPackageJson } = readPkgUp.sync();
 
-const binPath = name => path.join('./node_modules/.bin', name);
+const binPath = name => path.join(__dirname, '../node_modules/.bin', name);
 
 const projectHasFile = filename =>
   fs.existsSync(path.join(projectDirectory, filename));
