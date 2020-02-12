@@ -29,7 +29,6 @@
     "eslint": "^6.8.0",
     "eslint-config-gsandf": "^2.0.0",
     "eslint-config-gsandf-react": "^2.0.1",
-    "eslint-config-prettier": "^6.10.0",
     "execa": "^1.0.0",
     "listr": "^0.14.3",
     "prettier": "^1.19.1",
