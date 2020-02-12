@@ -1,9 +1,10 @@
 const { projectPackageJson } = require('../../src/utils');
 
+const isReactInstalled =
+  projectPackageJson &&
+  projectPackageJson.dependencies &&
+  projectPackageJson.dependencies.react;
+
 module.exports = {
-  extends: [
-    projectPackageJson.dependencies.react ? 'gsandf-react' : 'gsandf',
-    'prettier'
-  ],
-  parser: 'babel-eslint'
+  extends: [isReactInstalled ? 'gsandf-react' : 'gsandf']
 };
