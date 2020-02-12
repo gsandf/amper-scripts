@@ -27,6 +27,7 @@
     "babel-eslint": "^10.0.3",
     "common-tags": "^1.8.0",
     "eslint": "^6.8.0",
+    "eslint-config-gsandf": "^2.0.0",
     "eslint-config-gsandf-react": "^2.0.1",
     "eslint-config-prettier": "^6.10.0",
     "execa": "^1.0.0",
