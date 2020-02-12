@@ -38,7 +38,7 @@ First, install using [one of the commands above](#Install).
 Add or update your `.eslintrc.js`:
 
 ```js
-module.exports = require('amper-scripts/config/.eslintrc.js');
+module.exports = require('amper-scripts/config/eslint');
 ```
 
 Add or update your `prettier.config.js`:
