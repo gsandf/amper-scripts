@@ -2,7 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
 
-const { path: projectDirectory, pkg: projectPackageJson } = readPkgUp.sync();
+const {
+  path: projectDirectory,
+  packageJson: projectPackageJson
+} = readPkgUp.sync();
 
 const binPath = name => path.join(__dirname, '../node_modules/.bin', name);
 
