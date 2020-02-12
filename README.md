@@ -4,22 +4,22 @@
 
 ## Why
 
-- **Learn a best-practice once** then re-use it everywhere.
+- **Create one set of basic standards** and re-use them everywhere.
 - **Easily opt-out:** any detected config file automatically overrides defaults.
-- **Easily extend:** config files are made to be extendable.
-- **One command** can get a decent baseline for testing in your CI servers.
+- **Easily extend:** config files are made to be basic and extendable.
+- **One command** can get a decent baseline for testing on your CI servers.
 
 ## Install
 
 Using [Yarn](https://yarnpkg.com/):
 
-```shellsession
+```shell
 $ yarn add -D amper-scripts
 ```
 
 …or using [npm](https://www.npmjs.com/):
 
-```shellsession
+```shell
 $ npm i --save-dev amper-scripts
 ```
 
@@ -27,7 +27,13 @@ $ npm i --save-dev amper-scripts
 
 ### Setting up in a project
 
-Install using [one of the commands above](#Install).
+A lot of setup is included, but you'll need to do a little setup. This is
+because your text editor likely expects config files to be in the project
+directory.
+
+First, install using [one of the commands above](#Install).
+
+#### Quick setup
 
 Add or update your `.eslintrc.js`:
 
@@ -48,23 +54,52 @@ Change scripts in your `package.json` or CI/CD setup to run this instead of
 {
   "scripts": {
     "lint": "amper-scripts lint",
-    "format": "amper-scripts format",
+    "format": "amper-scripts format-write",
     "validate": "amper-scripts validate"
   }
 }
 ```
 
+#### Using different settings
+
+Most commands allow you to extend or opt-out of the default config. In most
+cases to opt-out, just write the config file as you normally would and it'll be
+picked up.
+
+**Example: Extending ESLint config:**
+
+```js
+module.exports = {
+  extends: [require.resolve('amper-scripts/config/eslint')],
+  rules: {
+    /* your custom rules */
+  }
+  // you can also change any other settings, such as `env`
+};
+```
+
+**Example: Extending Prettier config**
+
+```js
+const gsandfDefaults = require('amper-scripts/config/prettier.config.js');
+
+module.exports = {
+  ...gsandfDefaults
+  // your rules
+};
+```
+
 ### Getting help
 
-If you ever forget what's available, just ask for help:
+If you ever forget what commands are available, just ask for help:
 
-```shellsession
+```shell
 $ amper-scripts --help
 ```
 
 If you need help on a specific command, run the `help` script:
 
-```shellsession
+```shell
 $ amper-scripts help [command]
 ```
 
@@ -73,85 +108,62 @@ $ amper-scripts help [command]
 Check project code formatting using [Prettier](https://prettier.io/) and list
 any differing files:
 
-```shellsession
+```shell
 $ amper-scripts format-check
 ```
 
-Enforce code formatting using Prettier; overwrite differing files:
+Enforce code formatting using Prettier, overwriting differing files:
 
-```shellsession
+```shell
 $ amper-scripts format-write
 ```
 
 Or, just get vanilla Prettier with the default config and ignore applied:
 
-```shellsession
+```shell
 $ amper-scripts format [arguments]
 ```
 
 Override the Prettier config by adding [any allowed config
 file](https://prettier.io/docs/en/configuration.html). The configuration is not
-merged; any configuration is used as the base.
-
-To extend the config in this repo, you can add the following in your
-`prettier.config.js`:
-
-```js
-module.exports = require('amper-scripts/config/prettier.config.js');
-```
+merged; any detected configuration file is used as the base.
 
 ### Catching code errors
 
 Lint the project using [ESLint](https://eslint.org/):
 
-```shellsession
+```shell
 $ amper-scripts lint
 ```
 
 Override linting rules by adding any [configuration file allowed by
 ESLint](https://eslint.org/docs/user-guide/configuring#configuration-file-formats).
-The configuration is not merged; any configuration is used as the base.
+The configuration is not merged; any detected configuration file is used as the
+base.
 
-To extend the config in this repo, you can add the following in your
-`.eslintrc.js`:
+To extend the config in this repo, see ["using different
+settings"](#Using-different-settings) above.
 
-```js
-module.exports = {
-  extends: ['amper-scripts/config/.eslintrc.js'],
-  rules: [
-    // Add any custom rules
-  ]
-};
-```
+Additional arguments are passed to ESLint. For example, you can specify files to
+validate:
 
-Also, you likely need a config file at the root of your repo so your editor can
-use it. You can just re-export the built-in configuration in a `.eslintrc.js` in
-your project root:
-
-```js
-module.exports = require('amper-scripts/config/.eslintrc.js');
-```
-
-Additional arguments are passed to ESLint. For example, you can add additional
-files to validate:
-
-```shellsession
+```shell
 $ amper-scripts lint ./source
 ```
 
 ### Validating project
 
-Run commands to generally check the project (i.e. lint, format-check) all at
-once. This is good for CI servers because it's fast, exits if anything fails,
-and is oriented toward showing you where the error is:
+This runs commands to generally check the project (i.e. lint, format-check) all
+at once. This is good for CI servers because it's fast, exits if anything fails,
+and is oriented toward showing you where errors occur:
 
-```shellsession
+```shell
 $ amper-scripts validate
 ```
 
 You can opt-out of individual steps as needed:
 
-```shellsession
+```shell
 $ amper-scripts validate --no-lint
 ```
 
