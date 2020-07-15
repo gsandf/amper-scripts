@@ -22,16 +22,7 @@ async function format({ args, options }) {
   const hasSpecifiedIgnoreFile =
     args.includes('--ignore-path') || projectHasFile('.prettierignore');
 
-  const defaultFiles = [
-    '*.js?(x)',
-    '*.md?(x)',
-    '?(docs|src|test?(s))/**/*.js?(x)',
-    '?(docs|src|test?(s))/**/*.md?(x)',
-    '?(docs|src|test?(s))/**/*.?(s)css'
-  ];
-
   const argsWithDefaults = [
-    ...args,
     // Use a default config if none specified
     ...(hasSpecifiedConfig ? [] : ['--config', getDefaultConfig()]),
     // Use a default ignore file if not specified
@@ -41,7 +32,7 @@ async function format({ args, options }) {
           '--ignore-path',
           path.resolve(__dirname, '../../config/.prettierignore')
         ]),
-    ...defaultFiles
+    ...args
   ];
 
   return execa(binPath('prettier'), argsWithDefaults, options);
@@ -52,11 +43,11 @@ function showHelp() {
     Format the project using Prettier.
 
     Usage:
-    amper-scripts format [options] [glob]
+    amper-scripts format [options] glob
 
     Options:
       options  any Prettier options (https://git.io/fjtgc)
-      glob     a glob specifying additional files to format
+      glob     a file, directory, or glob specifying files to format
   `);
 }
 

@@ -9,7 +9,7 @@ function showHelp() {
     Enforce code formatting using Prettier; overwrite differing files.
 
     Usage:
-    amper-scripts format-write [options] [glob]
+    amper-scripts format-write [options] glob
 
     Options:
       options  any Prettier options (https://git.io/fjtgc)

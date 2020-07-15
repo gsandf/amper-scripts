@@ -9,7 +9,7 @@ function showHelp() {
     Check project code formatting using Prettier and list any differing files.
 
     Usage:
-    amper-scripts format-check [options] [glob]
+    amper-scripts format-check [options] glob
 
     Options:
       options  any Prettier options (https://git.io/fjtgc)

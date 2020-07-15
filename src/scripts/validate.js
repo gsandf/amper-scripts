@@ -1,20 +1,20 @@
 const { codeBlock } = require('common-tags');
 const Listr = require('listr');
 
-const makeTask = commandName => async () =>
-  require(`./${commandName}`).default({ args: [] });
+const makeTask = (commandName, args) => async () =>
+  require(`./${commandName}`).default({ args });
 
 function validate({ args = [] }) {
   const tasks = [
     {
       skip: () => args.includes('--no-lint') && 'Specified --no-lint',
-      task: makeTask('lint'),
+      task: makeTask('lint', args),
       title: '🚨  Linting files'
     },
     {
       skip: () =>
         args.includes('--no-format-check') && 'Specified --no-format-check',
-      task: makeTask('format-check'),
+      task: makeTask('format-check', args),
       title: '💅  Checking code formatting'
     }
   ];
