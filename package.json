@@ -26,12 +26,12 @@
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "common-tags": "^1.8.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.17.0",
     "eslint-config-gsandf": "^2.0.0",
     "eslint-config-gsandf-react": "^2.0.1",
-    "execa": "^4.0.3",
+    "execa": "^5.0.0",
     "listr": "^0.14.3",
-    "prettier": "^2.0.5",
+    "prettier": "^2.2.1",
     "read-pkg-up": "^7.0.1"
   }
 }
