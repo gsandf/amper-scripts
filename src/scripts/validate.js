@@ -25,7 +25,7 @@ function validate({ args = [] }) {
   });
 
   listr.run().catch(error => {
-    console.error(error.stdout || error);
+    console.error(`${error.stdout}\n${error.stderr}`);
     process.exit(error.code || 1);
   });
 }
