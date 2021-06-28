@@ -3,9 +3,11 @@ const path = require('path');
 const readPkgUp = require('read-pkg-up');
 
 const {
-  path: projectDirectory,
+  path: projectPackageJsonPath,
   packageJson: projectPackageJson
 } = readPkgUp.sync();
+
+const projectDirectory = path.dirname(projectPackageJsonPath);
 
 const binPath = name => path.join(__dirname, '../node_modules/.bin', name);
 
