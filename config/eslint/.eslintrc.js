@@ -1,10 +1,28 @@
+const { has } = require('@blakek/deep');
 const { projectPackageJson } = require('../../src/utils');
 
-const isReactInstalled =
-  projectPackageJson &&
-  projectPackageJson.dependencies &&
-  projectPackageJson.dependencies.react;
+function isDependentOn(dependencyName) {
+  return (
+    has(['dependencies', dependencyName], projectPackageJson) ||
+    has(['devDependencies', dependencyName], projectPackageJson)
+  );
+}
+
+function getBaseConfig() {
+  if (isDependentOn('typescript')) {
+    return 'gsandf-typescript';
+  }
+
+  if (isDependentOn('react')) {
+    return 'gsandf-react';
+  }
+
+  return 'gsandf';
+}
 
 module.exports = {
-  extends: [isReactInstalled ? 'gsandf-react' : 'gsandf']
+  extends: [getBaseConfig()],
+  parserOptions: {
+    project: './tsconfig.json'
+  }
 };

@@ -24,14 +24,16 @@
   },
   "version": "1.1.0",
   "dependencies": {
+    "@blakek/deep": "^2.2.0",
     "babel-eslint": "^10.1.0",
     "common-tags": "^1.8.0",
-    "eslint": "^7.17.0",
-    "eslint-config-gsandf": "^2.0.0",
-    "eslint-config-gsandf-react": "^2.0.1",
-    "execa": "^5.0.0",
+    "eslint": "^7.29.0",
+    "eslint-config-gsandf": "^3.0.0",
+    "eslint-config-gsandf-react": "^3.0.0",
+    "eslint-config-gsandf-typescript": "^1.0.2",
+    "execa": "^5.1.1",
     "listr": "^0.14.3",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.2",
     "read-pkg-up": "^7.0.1"
   }
 }
