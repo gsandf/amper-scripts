@@ -767,10 +767,11 @@ eslint-config-gsandf-react@^3.0.0:
     eslint-plugin-react-hooks "^4.2.0"
 
 eslint-config-gsandf-typescript@^1.0.2:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/eslint-config-gsandf-typescript/-/eslint-config-gsandf-typescript-1.0.5.tgz#9e785b371e348964d71a6febdff0a65f7b11e6a3"
-  integrity sha512-SjuT9h4EiIjltdI4IehiXkmbJY3FRUMObQU5VkJtCh1Yzk47AIoAmbDDiL8gS+Q58VD5W+1Gf0WeBtmTcK3LoQ==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/eslint-config-gsandf-typescript/-/eslint-config-gsandf-typescript-1.0.6.tgz#f4cd5c9277b53636ab30d2c7e0ebdafb3fd1174d"
+  integrity sha512-ArtXqi+Q3twO6MPi1qgXdham9GVjhDvC2M+MFqBqPv3D9AQIHq+p9OWyXosIFY+MF7jcrtkXSzsSZqUUwU/uXA==
   dependencies:
+    "@blakek/deep" "^2.2.0"
     "@typescript-eslint/eslint-plugin" "^4.28.1"
     "@typescript-eslint/parser" "^4.28.1"
     eslint-config-gsandf "^3.0.0"
