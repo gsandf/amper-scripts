@@ -2,10 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
 
-const {
-  path: projectPackageJsonPath,
-  packageJson: projectPackageJson
-} = readPkgUp.sync();
+const { path: projectPackageJsonPath, packageJson: projectPackageJson } =
+  readPkgUp.sync();
 
 const projectDirectory = path.dirname(projectPackageJsonPath);
 
