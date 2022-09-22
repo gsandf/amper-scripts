@@ -24,8 +24,8 @@
   },
   "version": "1.2.4",
   "dependencies": {
+    "@babel/eslint-parser": "^7.19.1",
     "@blakek/deep": "^2.2.0",
-    "babel-eslint": "^10.1.0",
     "common-tags": "^1.8.0",
     "eslint": "^7.29.0",
     "eslint-config-gsandf": "^3.0.0",
@@ -35,5 +35,9 @@
     "listr": "^0.14.3",
     "prettier": "^2.3.2",
     "read-pkg-up": "^7.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "typescript": "^4.8.3"
   }
 }
