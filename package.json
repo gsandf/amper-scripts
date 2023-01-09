@@ -22,7 +22,7 @@
     "test": "echo 'No tests written yet'",
     "validate": "node . validate"
   },
-  "version": "1.2.4",
+  "version": "1.2.5",
   "dependencies": {
     "@blakek/deep": "^2.2.0",
     "babel-eslint": "^10.1.0",
